@@ -1,0 +1,93 @@
+# This .gitignore file should be placed at the root of your Unity project directory
+# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
+
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Logs
+*.log
+
+# Blender backups
+*.blend1
+*.blend1.meta
+
+# MemoryCaptures
+[Mm]emoryCaptures/
+
+# Recordings
+[Rr]ecordings/
+
+# Asset Store Tools
+# /Assets/AssetStoreTools*
+
+# JetBrains Rider
+[Assets]/Plugins/Editor/JetBrains*
+*.DotSettings.user
+
+# Visual Studio
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.slnx
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity meta files generated for assemblies
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Crash reports
+sysinfo.txt
+mono_crash.*
+
+# Builds
+*.apk
+*.aab
+*.unitypackage
+*.unitypackage.meta
+*.app
+
+# Crashlytics
+crashlytics-build.properties
+
+# TestRunner
+InitTestScene*.unity*
+
+# Addressables
+/ServerData
+[Assets]/StreamingAssets/aa*
+[Assets]/AddressableAssetsData/link.xml*
+[Assets]/Addressables_Temp*
+[Assets]/AddressableAssetsData/*/*.bin*
+
+# Visual Scripting
+[Assets]/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
+[Assets]/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
+[Assets]/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
+[Assets]/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
+
+# Auto-generated play mode test scenes
+[Assets]/InitTestScene*.unity*
+
+# UI Toolkit
+/UIElementsSchema/
+
+# Scene Dependency Cache
+[Assets]/SceneDependencyCache*
