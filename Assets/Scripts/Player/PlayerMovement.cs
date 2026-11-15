@@ -20,6 +20,12 @@ public class PlayerMovement: MonoBehaviour
 
     public PlayerDash dashState { get; set; }
 
+    public PlayerGroundCollide groundCollide { get; set; }
+
+    public PlayerTrampolineCollide trampolineCollide { get; set; }
+    
+    public PlayerWallCollide wallCollide { get; set; }
+
     public void initializationOfStates()
     {
         stateMachine = new PlayerStateMachine();
@@ -28,6 +34,9 @@ public class PlayerMovement: MonoBehaviour
         jumpFallState = new PlayerJumpingFalling(this, stateMachine);
         walkState = new PlayerWalk(this, stateMachine);
         dashState = new PlayerDash(this, stateMachine);
+        groundCollide = new PlayerGroundCollide(this, stateMachine);
+        wallCollide = new PlayerWallCollide(this, stateMachine);
+        trampolineCollide = new PlayerTrampolineCollide(this, stateMachine);
         stateMachine.Initialize(jumpFallState);
     }
 
@@ -86,7 +95,6 @@ public class PlayerMovement: MonoBehaviour
 
     [Header("LayerMasks")]
     public LayerMask groundLayer;
-    public LayerMask enemyLayer;
 
     [Header("Collision Variables")]
     public float wallStunTime = 0.4f;

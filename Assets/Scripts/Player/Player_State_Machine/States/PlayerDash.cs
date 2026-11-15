@@ -33,8 +33,6 @@ namespace Assets.Scripts.Player.Player_State_Machine.States
         public override void FrameUpdate()
         {
             base.FrameUpdate();
-            player.rb.linearVelocityY = 0;
-            player.VerticalVelocity = 0;
             dashTime -= Time.deltaTime;
             if (dashTime <= 0)
             {
