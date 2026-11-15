@@ -5,9 +5,6 @@ TextureImporter:
   - first:
       213: -1353621403268534273
     second: BallGloveDash_0001_0
-  - first:
-      213: 2166352194876618753
-    second: BallGloveDash_0001_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,7 +105,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 33
+        width: 96
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -120,28 +117,6 @@ TextureImporter:
       bones: []
       spriteID: fff20d96188f63de0800000000000000
       internalID: -1353621403268534273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BallGloveDash_0001_1
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 0
-        width: 47
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 108320ae7dd601e10800000000000000
-      internalID: 2166352194876618753
       vertices: []
       indices: 
       edges: []
@@ -161,7 +136,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       BallGloveDash_0001_0: -1353621403268534273
-      BallGloveDash_0001_1: 2166352194876618753
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

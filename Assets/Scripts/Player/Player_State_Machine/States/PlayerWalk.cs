@@ -30,6 +30,7 @@ namespace Assets.Scripts.Player.Player_State_Machine.States
         public override void FrameUpdate()
         {
             base.FrameUpdate();
+
             if (InputManager.instance.dashInput && player.dashCD <= 0)
             {
                 player.stateMachine.ChangeState(player.dashState);

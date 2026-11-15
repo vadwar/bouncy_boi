@@ -122,6 +122,8 @@ public class PlayerMovement: MonoBehaviour
         stateMachine.CurrentPlayerState.FrameUpdate();
         animator.SetFloat("SpeedY", VerticalVelocity);
         animator.SetFloat("SpeedX", rb.linearVelocityX);
+
+        Debug.Log(stateMachine.CurrentPlayerState);
     }
 
     private void FixedUpdate()
