@@ -21,7 +21,7 @@ namespace Assets.Scripts.Player.Player_State_Machine.States
             player._isPastApexThreshold = false;
             player.dashDir = player.isFacingRight ? 1 : -1;
             player.rb.linearVelocityX = 0;
-            player.dashCD = 1f;
+            player.dashCD = 0.25f;
             player.rb.linearVelocityY = 0;
             player.VerticalVelocity = 0;
             dashTime = 0.33f;
@@ -32,6 +32,7 @@ namespace Assets.Scripts.Player.Player_State_Machine.States
         {
             player.rb.linearVelocityX += player.dashDir * player.DASHSPEED;
             player.rb.linearVelocityY = 20;
+            
             player.animator.SetTrigger("Still");
             base.ExitState();
         }

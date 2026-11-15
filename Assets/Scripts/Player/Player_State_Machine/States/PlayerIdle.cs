@@ -17,7 +17,6 @@ public class PlayerIdle : PlayerState
     {
         base.EnterState();
         player.animator.SetTrigger("Still");
-        player.rb.linearVelocity = Vector2.zero;
     }
 
     public override void ExitState()

@@ -7,8 +7,8 @@ public class PlayerMovementStats : ScriptableObject
     [Range(1f, 100f)] public float moveSpeed = 20f;
 
     [Header("Grounded/Collision Checks")]
-    public float GroundDetectionRayLength = 0.02f;
-    public float HeadDetectionRayLength = 0.02f;
+    public float GroundDetectionRayLength = 0.05f;
+    public float HeadDetectionRayLength = 0.05f;
     [Range(0f, 1f)] public float HeadWidth = 0.75f;
 
     [Header("Jump")]

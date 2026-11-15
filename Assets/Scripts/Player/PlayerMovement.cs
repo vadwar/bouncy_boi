@@ -90,7 +90,7 @@ public class PlayerMovement: MonoBehaviour
     [Header("Dash Variables")]
     public float DASHSPEED = 30;
     public float DASHTIME = 0.15f;
-    public float dashCD = 1f;
+    public float dashCD = 0.25f;
     public float dashDir = 1f;
 
     [Header("LayerMasks")]
@@ -124,6 +124,7 @@ public class PlayerMovement: MonoBehaviour
         animator.SetFloat("SpeedX", rb.linearVelocityX);
 
         Debug.Log(stateMachine.CurrentPlayerState);
+        Debug.Log("Isgrounded:" + _isGrounded);
     }
 
     private void FixedUpdate()
