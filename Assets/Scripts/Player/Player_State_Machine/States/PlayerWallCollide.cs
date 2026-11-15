@@ -20,6 +20,8 @@ public class PlayerWallCollide : PlayerState
         base.EnterState();
         player.rb.linearVelocity = Vector2.zero;
         stunTime = player.wallStunTime;
+
+        player.animator.SetTrigger("Wall");
     }
 
     public override void ExitState()

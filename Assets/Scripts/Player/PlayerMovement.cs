@@ -120,7 +120,8 @@ public class PlayerMovement: MonoBehaviour
     {
         CountTimers();
         stateMachine.CurrentPlayerState.FrameUpdate();
-        animator.SetFloat("AirSpeedY", VerticalVelocity);
+        animator.SetFloat("SpeedY", VerticalVelocity);
+        animator.SetFloat("SpeedX", rb.linearVelocityX);
     }
 
     private void FixedUpdate()
@@ -235,6 +236,7 @@ public class PlayerMovement: MonoBehaviour
         if (_jumpBufferTimer > 0f && !_isJumping && (_isGrounded || _coyoteTimer > 0f))
         {
             InitiateJump(1);
+            animator.SetTrigger("Jump");
 
             if (_jumpReleaseDuringBuffer)
             {
@@ -248,12 +250,14 @@ public class PlayerMovement: MonoBehaviour
         {
             _isFastFalling = false;
             InitiateJump(1);
+            animator.SetTrigger("DoubleJump");
         }
 
         //Air jump after coyote time lapsed
         else if (_jumpBufferTimer > 0f && _isFalling && _numberOfJumpsUsed < MoveStats.NumberOfJumpsAllowed - 1)
         {
             InitiateJump(2);
+            animator.SetTrigger("DoubleJump");
             _isFastFalling = false;
         }
 
@@ -275,9 +279,9 @@ public class PlayerMovement: MonoBehaviour
     {
         if (!_isJumping)
         {
-            animator.SetTrigger("Jump");
             _isJumping = true;
         }
+
 
         _jumpBufferTimer = 0f;
         _numberOfJumpsUsed += numberOfJumpsUsed;
@@ -391,12 +395,10 @@ public class PlayerMovement: MonoBehaviour
         if (_groundHit.collider != null)
         {
             _isGrounded = true;
-            animator.SetBool("Grounded", true);
         }
         else
         {
             _isGrounded = false;
-            animator.SetBool("Grounded", false);
         }
     }
 

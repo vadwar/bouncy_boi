@@ -23,6 +23,10 @@ namespace Assets.Scripts.Player.Player_State_Machine.States
             player.rb.linearVelocityX = player.DASHSPEED * player.dashDir;
             dashTime = player.DASHTIME;
             player.dashCD = 1f;
+            player.rb.linearVelocityY = 0;
+            player.VerticalVelocity = 0;
+
+            player.animator.SetTrigger("Dash");
         }
 
         public override void ExitState()

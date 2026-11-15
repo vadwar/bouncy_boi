@@ -16,7 +16,7 @@ public class PlayerIdle : PlayerState
     public override void EnterState()
     {
         base.EnterState();
-        player.animator.SetInteger("AnimState", -1);
+        player.animator.SetTrigger("Still");
         player.rb.linearVelocity = Vector2.zero;
     }
 

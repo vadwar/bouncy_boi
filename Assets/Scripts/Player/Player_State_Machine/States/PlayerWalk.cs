@@ -18,7 +18,7 @@ namespace Assets.Scripts.Player.Player_State_Machine.States
         public override void EnterState()
         {
             base.EnterState();
-            player.animator.SetInteger("AnimState", 1);
+            player.animator.SetTrigger("Still");
             player.Move(InputManager.instance.moveInput);
         }
 

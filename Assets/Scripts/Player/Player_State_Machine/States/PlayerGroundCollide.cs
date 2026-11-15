@@ -20,6 +20,8 @@ public class PlayerGroundCollide : PlayerState
         base.EnterState();
         player.rb.linearVelocity = Vector2.zero;
         stunTime = player.floorStunTime;
+
+        player.animator.SetTrigger("Floor");
     }
 
     public override void ExitState()
