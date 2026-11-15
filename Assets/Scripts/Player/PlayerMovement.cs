@@ -155,20 +155,12 @@ public class PlayerMovement: MonoBehaviour
 
     public void Move(Vector2 moveInput)
     {
-        if (moveInput != Vector2.zero)
-        {
-            TurnCheck(moveInput);
+        TurnCheck(moveInput);
 
-            moveVelocity = new Vector2(moveInput.x, 0f) * MoveStats.moveSpeed;
-            rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
-        }
+        moveVelocity = new Vector2(moveInput.x, 0f) * MoveStats.moveSpeed;
+        rb.linearVelocity = new Vector2(rb.linearVelocityX + moveVelocity.x, rb.linearVelocity.y);
 
-        else if (moveInput == Vector2.zero)
-        {
-            moveVelocity = new Vector2(0f, 0f);
-            rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
-        }
-
+        rb.linearVelocityX -= rb.linearVelocityX / 30;
     }
 
     private void TurnCheck(Vector2 moveInput)

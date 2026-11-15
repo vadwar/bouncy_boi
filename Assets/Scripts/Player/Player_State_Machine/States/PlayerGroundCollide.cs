@@ -33,7 +33,7 @@ public class PlayerGroundCollide : PlayerState
     {
         base.FrameUpdate();
 
-        stunTime -= Time.deltaTime;
+        stunTime -= Time.fixedDeltaTime;
         if (stunTime < 0)
         {
             player.stateMachine.ChangeState(player.walkState);

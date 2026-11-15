@@ -33,8 +33,8 @@ public class PlayerWallCollide : PlayerState
     {
         base.FrameUpdate();
 
-        stunTime -= Time.deltaTime;
-        if(stunTime < 0 ) {
+        stunTime -= Time.fixedDeltaTime;
+        if (stunTime < 0 ) {
             player.stateMachine.ChangeState(player.jumpFallState);
         }
     }

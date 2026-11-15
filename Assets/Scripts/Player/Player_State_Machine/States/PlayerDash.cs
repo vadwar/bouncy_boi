@@ -4,7 +4,7 @@ namespace Assets.Scripts.Player.Player_State_Machine.States
 {
     public class PlayerDash : PlayerState
     {
-        public float dashTime;
+        float dashTime;
         public PlayerDash(PlayerMovement player, PlayerStateMachine playerStateMachine) : base(player, playerStateMachine)
         {
 
@@ -18,35 +18,41 @@ namespace Assets.Scripts.Player.Player_State_Machine.States
         public override void EnterState()
         {
             base.EnterState();
-            player._isPastApexThreshold = true;
+            player._isPastApexThreshold = false;
             player.dashDir = player.isFacingRight ? 1 : -1;
-            player.rb.linearVelocityX = player.DASHSPEED * player.dashDir;
-            dashTime = player.DASHTIME;
+            player.rb.linearVelocityX = 0;
             player.dashCD = 1f;
             player.rb.linearVelocityY = 0;
             player.VerticalVelocity = 0;
-
+            dashTime = 0.33f;
             player.animator.SetTrigger("Dash");
         }
 
         public override void ExitState()
         {
+            player.rb.linearVelocityX += player.dashDir * player.DASHSPEED;
+            player.rb.linearVelocityY = 20;
+            player.animator.SetTrigger("Still");
             base.ExitState();
         }
 
         public override void FrameUpdate()
         {
             base.FrameUpdate();
-            dashTime -= Time.deltaTime;
-            if (dashTime <= 0)
-            {
-                player.stateMachine.ChangeState(player.jumpFallState);
-            }
         }
 
         public override void PhysicsUpdate()
         {
             base.PhysicsUpdate();
+            dashTime -= Time.fixedDeltaTime;
+            player.rb.linearVelocityX = 0;
+            player.dashCD = 1f;
+            player.rb.linearVelocityY = 0;
+            player.VerticalVelocity = 0;
+            if (dashTime <= 0)
+            {
+                player.stateMachine.ChangeState(player.jumpFallState);
+            }
         }
     }
 }
