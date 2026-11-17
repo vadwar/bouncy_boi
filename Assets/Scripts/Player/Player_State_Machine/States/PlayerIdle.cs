@@ -50,6 +50,6 @@ public class PlayerIdle : PlayerState
 
     public override void PhysicsUpdate()
     {
-        base.PhysicsUpdate();
+        player.Move(InputManager.instance.moveInput);
     }
 }

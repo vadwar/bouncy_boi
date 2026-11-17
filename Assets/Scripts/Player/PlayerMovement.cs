@@ -4,6 +4,7 @@ using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEngine.UI.Selectable;
 
 public class PlayerMovement: MonoBehaviour
@@ -123,8 +124,9 @@ public class PlayerMovement: MonoBehaviour
         animator.SetFloat("SpeedY", VerticalVelocity);
         animator.SetFloat("SpeedX", rb.linearVelocityX);
 
-        Debug.Log(stateMachine.CurrentPlayerState);
-        Debug.Log("Isgrounded:" + _isGrounded);
+        Debug.Log(transform.position.x);
+        //Debug.Log(stateMachine.CurrentPlayerState);
+        //Debug.Log("Isgrounded:" + _isGrounded);
     }
 
     private void FixedUpdate()
