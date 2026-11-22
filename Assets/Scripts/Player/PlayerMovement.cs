@@ -122,10 +122,6 @@ public class PlayerMovement: MonoBehaviour
         stateMachine.CurrentPlayerState.FrameUpdate();
         animator.SetFloat("SpeedY", VerticalVelocity);
         animator.SetFloat("SpeedX", rb.linearVelocityX);
-
-        Debug.Log(transform.position.x);
-        //Debug.Log(stateMachine.CurrentPlayerState);
-        //Debug.Log("Isgrounded:" + _isGrounded);
     }
 
     private void FixedUpdate()
