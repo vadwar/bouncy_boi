@@ -8,7 +8,7 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField] private GameObject DeathExplosion;
     private bool _explosionOver;
 
-    [Range(0f, 3f)] public float heightAdjustY = 1f;
+    [Range(0f, 5f)] public float heightAdjustY = 1f;
     Vector3 heightAdjust = new Vector3();
 
     void Start()
