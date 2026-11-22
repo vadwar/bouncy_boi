@@ -45,7 +45,6 @@ public class PlayerMovement: MonoBehaviour
 
     [Header("References")]
     public PlayerMovementStats MoveStats;
-    [SerializeField] public Collider2D body;
     [SerializeField] private Collider2D feet;
     [SerializeField] private Collider2D head;
     [SerializeField] public Transform playerTransform;
@@ -449,6 +448,7 @@ public class PlayerMovement: MonoBehaviour
         Walk,
         Jump,
         Fall,
+        DeathAnimationEnd,
     }
 
     #endregion
