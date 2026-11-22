@@ -1,3 +1,4 @@
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,6 +6,7 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager instance;
 
+    public static PlayerInput PlayerInput;
 
     public Vector2 moveInput { get; private set; }
     public bool jumpJustPressed { get; private set; }
@@ -12,9 +14,6 @@ public class InputManager : MonoBehaviour
     public bool jumpReleased { get; private set; }
     public bool dashInput { get; private set; }
     public bool menuInput { get; private set; }
-
-
-    private PlayerInput playerInput;
 
     private InputAction moveAction;
     private InputAction jumpAction;
@@ -30,7 +29,7 @@ public class InputManager : MonoBehaviour
             instance = this;
         }
 
-        playerInput = GetComponent<PlayerInput>();
+        PlayerInput = GetComponent<PlayerInput>();
 
         SetupInputActions();
     }
@@ -42,10 +41,10 @@ public class InputManager : MonoBehaviour
 
     private void SetupInputActions()
     {
-        moveAction = playerInput.actions["Move"];
-        jumpAction = playerInput.actions["Jump"];
-        dashAction = playerInput.actions["Dash"];
-        menuAction = playerInput.actions["Menu"];
+        moveAction = PlayerInput.actions["Move"];
+        jumpAction = PlayerInput.actions["Jump"];
+        dashAction = PlayerInput.actions["Dash"];
+        menuAction = PlayerInput.actions["Menu"];
     }
 
     private void UpdateInput()
