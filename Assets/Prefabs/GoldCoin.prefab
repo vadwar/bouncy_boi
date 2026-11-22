@@ -175,3 +175,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectGoldCoinTrigger
   coin: {fileID: 11400000, guid: 4a32e2add11cf2e418c981105c32794f, type: 2}
+  counter: {fileID: 0}
