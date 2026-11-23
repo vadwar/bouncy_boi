@@ -3,17 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerTrampolineCollide : PlayerState
 {
-    private float stunTime = 0;
-    private Vector2 initialVelocity;
-    private int yVelocityBoost = 100;
-    private int xVelocityBoost = 20;
-    private float direction; // follows NESW as 0123 (given by TrampolineTrigger script)
-
-    public void SetDirection(float newDirection)
-    {
-        direction = newDirection;
-    }
-
+    float stunTime = 0;
+    Vector2 initialVelocity;
 
     public PlayerTrampolineCollide(PlayerMovement player, PlayerStateMachine playerStateMachine) : base(player, playerStateMachine)
     {
@@ -36,35 +27,7 @@ public class PlayerTrampolineCollide : PlayerState
     public override void ExitState()
     {
         base.ExitState();
-
-        // North
-        if(direction == 0) 
-        {
-            player.rb.linearVelocity = new Vector2(initialVelocity.x, initialVelocity.y);
-            player.VerticalVelocity = yVelocityBoost;
-        }
-
-        // East
-        if(direction == 1)
-        {
-            player.rb.linearVelocity = new Vector2(-initialVelocity.x - xVelocityBoost, initialVelocity.y);
-            Debug.Log(player.rb.linearVelocityX);
-        }
-
-        // South
-        if (direction == 2)
-        {
-            player.rb.linearVelocity = new Vector2(initialVelocity.x, initialVelocity.y);
-            player.VerticalVelocity = -yVelocityBoost;
-        }
-
-        // West
-        if (direction == 3)
-        {
-            player.rb.linearVelocity = new Vector2(-initialVelocity.x + xVelocityBoost, initialVelocity.y);
-            Debug.Log(player.rb.linearVelocityX);
-        }
-
+        player.rb.linearVelocity = new Vector2(initialVelocity.y, initialVelocity.x);
     }
 
     public override void FrameUpdate()
