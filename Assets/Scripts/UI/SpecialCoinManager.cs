@@ -31,4 +31,9 @@ public class SpecialCoinManager : MonoBehaviour
             special3.color = collectedColor;
         }
     }
+
+    public void SetActive()
+    {
+        gameObject.SetActive(false);
+    }
 }

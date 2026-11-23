@@ -46,4 +46,9 @@ public class SpeedrunTimer : MonoBehaviour
         int millis = (int)((t * 1000f) % 1000f);
         return $"{minutes:00}:{seconds:00}.{millis:000}";
     }
+
+    public void SetActive()
+    {
+        gameObject.SetActive(false);
+    }
 }
