@@ -11,4 +11,9 @@ public class CoinManager : MonoBehaviour
         coins += amount;
         coinText.text = "" + coins;
     }
+
+    public void SetActive()
+    {
+        gameObject.SetActive(false);
+    }
 }
