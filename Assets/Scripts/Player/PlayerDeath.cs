@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class PlayerDeath : MonoBehaviour
 {
     [SerializeField] private AudioClip BirdDeathSound;
@@ -10,10 +11,12 @@ public class PlayerDeath : MonoBehaviour
 
     [Range(0f, 5f)] public float heightAdjustY = 1f;
     Vector3 heightAdjust = new Vector3();
+    public SpeedrunTimer timer;
 
     void Start()
     {
         heightAdjust.y = heightAdjustY;
+        timer = FindAnyObjectByType<SpeedrunTimer>();
     }
 
     void Update()
@@ -24,6 +27,7 @@ public class PlayerDeath : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
+            timer.StopTimer();
             StartCoroutine(DeathRoutine(collider));
         }
     }
