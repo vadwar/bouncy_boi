@@ -4,6 +4,7 @@ using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using static UnityEngine.UI.Selectable;
 
@@ -118,12 +119,13 @@ public class PlayerMovement: MonoBehaviour
 
     private void Update()
     {
+        RestartGame(InputManager.instance.restartInput);
         CountTimers();
         stateMachine.CurrentPlayerState.FrameUpdate();
         animator.SetFloat("SpeedY", VerticalVelocity);
         animator.SetFloat("SpeedX", rb.linearVelocityX);
 
-        Debug.Log(transform.position.x);
+        //Debug.Log(transform.position.x);
         //Debug.Log(stateMachine.CurrentPlayerState);
         //Debug.Log("Isgrounded:" + _isGrounded);
     }
@@ -433,6 +435,15 @@ public class PlayerMovement: MonoBehaviour
         else { _coyoteTimer = MoveStats.JumpCoyoteTime; }
     }
 
+
+    #endregion
+
+    #region
+
+    private void RestartGame(bool restartInput)
+    {
+        if (restartInput) { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+    }
 
     #endregion
 

@@ -14,11 +14,13 @@ public class InputManager : MonoBehaviour
     public bool jumpReleased { get; private set; }
     public bool dashInput { get; private set; }
     public bool menuInput { get; private set; }
+    public bool restartInput { get; private set; }
 
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction dashAction;
     private InputAction menuAction;
+    private InputAction restartAction;
 
 
 
@@ -45,6 +47,7 @@ public class InputManager : MonoBehaviour
         jumpAction = PlayerInput.actions["Jump"];
         dashAction = PlayerInput.actions["Dash"];
         menuAction = PlayerInput.actions["Menu"];
+        restartAction = PlayerInput.actions["Restart"];
     }
 
     private void UpdateInput()
@@ -55,5 +58,6 @@ public class InputManager : MonoBehaviour
         jumpReleased = jumpAction.WasReleasedThisFrame();
         dashInput = dashAction.WasPressedThisFrame();
         menuInput = menuAction.WasPressedThisFrame();
+        restartInput = restartAction.WasPressedThisFrame();
     }
 }
